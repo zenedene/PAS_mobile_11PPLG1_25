@@ -6,6 +6,7 @@ import 'package:pas_mobile_11pplg1_25/pages/main_page.dart';
 import 'package:pas_mobile_11pplg1_25/pages/products_page.dart';
 import 'package:pas_mobile_11pplg1_25/pages/profile_page.dart';
 import 'package:pas_mobile_11pplg1_25/pages/register_page.dart';
+import 'package:pas_mobile_11pplg1_25/pages/splashscreen_page.dart';
 import 'package:pas_mobile_11pplg1_25/routes/routes.dart';
 
 class AppPages {
@@ -38,6 +39,11 @@ class AppPages {
     GetPage(
       name: AppRoutes.favoritepage,
       page: () => FavoritePage(),
+      binding: AllBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.splashscreenpage,
+      page: () => SplashscreenPage(),
       binding: AllBindings(),
     ),
   ];
