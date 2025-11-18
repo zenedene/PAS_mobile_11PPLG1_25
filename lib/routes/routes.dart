@@ -4,4 +4,5 @@ class AppRoutes {
   static const profilepage = "/profilepage";
   static const productspage = "/productspage";
   static const registerpage = "/registerpage";
+  static const favoritepage = "/favoritepage";
 }

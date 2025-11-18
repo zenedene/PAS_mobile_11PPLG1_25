@@ -41,7 +41,6 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // Username (Reactive dengan Obx)
               Obx(() {
                 return Text(
                   controller.username.value.isNotEmpty
@@ -55,8 +54,7 @@ class ProfilePage extends StatelessWidget {
                 );
               }),
               const SizedBox(height: 40),
-
-              // Tombol Logout
+              
               CustomButton(
                 text: 'Logout',
                 onPressed: () {

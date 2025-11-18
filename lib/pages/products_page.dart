@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_mobile_11pplg1_25/controller/products_controller.dart';
+import 'package:pas_mobile_11pplg1_25/controller/favorite_controller.dart';
 import 'package:pas_mobile_11pplg1_25/components/custom_product_card.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -9,9 +10,11 @@ class ProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ProductsController controller = Get.find<ProductsController>();
+    final FavoriteController favCtrl = Get.find<FavoriteController>();
 
     return Scaffold(
       body: Obx(() {
+        final _ = favCtrl.favorites;
         if (controller.isLoading.value) {
           return const Center(child: CircularProgressIndicator());
         }
@@ -33,8 +36,11 @@ class ProductsPage extends StatelessWidget {
             itemBuilder: (context, index) {
               final item = controller.productList[index];
               return ProductCard(
+                key: ValueKey(item.id),
                 product: item,
-                onFavoriteChanged: (isFav) {
+                isFavorite: favCtrl.isFavoriteSync(item.id),
+                onFavoriteChanged: (isFav) async {
+                  await favCtrl.toggleFavorite(item);
                   if (isFav) {
                     Get.snackbar('Favorit', 'Ditambahkan ke favorit');
                   } else {

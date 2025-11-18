@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pas_mobile_11pplg1_25/components/custom_button.dart';
 import 'package:pas_mobile_11pplg1_25/components/custom_textfield.dart';
 import 'package:pas_mobile_11pplg1_25/controller/login_controller.dart';
-import 'package:pas_mobile_11pplg1_25/pages/register_page.dart';
 import 'package:pas_mobile_11pplg1_25/routes/routes.dart';
 
 class LoginPage extends StatelessWidget {
@@ -23,7 +22,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Logo atau Icon
+                
                 Container(
                   width: 120,
                   height: 120,
@@ -39,7 +38,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
 
-                // Title
+
                 Text(
                   'Selamat Datang',
                   textAlign: TextAlign.center,
@@ -51,7 +50,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
 
-                // Subtitle
+
                 Text(
                   'Silakan login untuk melanjutkan',
                   textAlign: TextAlign.center,
@@ -59,7 +58,6 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 48),
 
-                // Email TextField
                 CustomTextField(
                   controller: controller.emailController,
                   labelText: 'Username',
@@ -69,7 +67,6 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Password TextField (TANPA Obx karena tidak ada observable)
                 CustomTextField(
                   controller: controller.passwordController,
                   labelText: 'Password',
@@ -78,9 +75,8 @@ class LoginPage extends StatelessWidget {
                   obscureText: true,
                   keyboardType: TextInputType.visiblePassword,
                 ),
-                const SizedBox(height: 24),
 
-                // Login Button dengan Obx untuk loading state
+                const SizedBox(height: 24),
                 Obx(() {
                   return CustomButton(
                     text: 'Login',
@@ -91,6 +87,7 @@ class LoginPage extends StatelessWidget {
                   );
                 }),
                 const SizedBox(height: 16),
+
                 Center(
                   child: Column(
                     children: [
@@ -99,8 +96,6 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(color: Colors.grey.shade600),
                       ),
                       const SizedBox(height: 8),
-
-                      // Tombol Daftar bergaya gradient dan rounded
                       CustomButton(
                         text: 'Daftar Sekarang',
                         onPressed: () =>

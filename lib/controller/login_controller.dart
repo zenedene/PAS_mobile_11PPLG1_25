@@ -14,7 +14,6 @@ class LoginController extends GetxController {
   var isLoggedIn = false.obs;
   var isLoading = false.obs;
 
-  /// 🔹 Cek apakah user sudah login (dipanggil dari Splashscreen)
   Future<void> checkLoginStatus() async {
     final prefs = await SharedPreferences.getInstance();
     final name = prefs.getString('username');
@@ -29,7 +28,6 @@ class LoginController extends GetxController {
     }
   }
 
-  /// 🔹 Login user
   Future<void> login() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
@@ -98,7 +96,6 @@ class LoginController extends GetxController {
     }
   }
 
-  /// 🔹 Logout user
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();

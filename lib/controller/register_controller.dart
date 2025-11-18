@@ -26,7 +26,10 @@ class RegisterController extends GetxController {
         email.isEmpty ||
         password.isEmpty ||
         fullName.isEmpty) {
-      return {'success': false, 'message': 'Semua field harus diisi'};
+      Get.snackbar(
+        'Error',
+        'Semua field harus diisi, tidak boleh ada yang kosong',
+      );
     }
 
     final url = Uri.parse('${ClientNetwork.baseUrl}/register-user');

@@ -26,6 +26,16 @@ class _ProductCardState extends State<ProductCard> {
     _isFavorite = widget.isFavorite;
   }
 
+  @override
+  void didUpdateWidget(covariant ProductCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.isFavorite != widget.isFavorite) {
+      setState(() {
+        _isFavorite = widget.isFavorite;
+      });
+    }
+  }
+
   void _toggleFavorite() {
     setState(() {
       _isFavorite = !_isFavorite;
@@ -75,19 +85,32 @@ class _ProductCardState extends State<ProductCard> {
                     ),
                   ),
                   const SizedBox(height: 6),
-                  Text(
-                    "\$${widget.product.price}",
-                    style: TextStyle(
-                      color: Colors.green.shade700,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  Row(
+                    children: [
+                      Icon(Icons.star, size: 16, color: Colors.amber.shade600),
+                      const SizedBox(width: 4),
+                      Text(
+                        "${widget.product.rating.rate.toString()}/5",
+                        style: TextStyle(
+                          color: Colors.grey.shade600,
+                          fontSize: 15,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Text(
+                        "\$${widget.product.price}",
+                        style: TextStyle(
+                          color: Colors.green.shade700,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
 
-            // Favorite button
             Column(
               children: [
                 IconButton(

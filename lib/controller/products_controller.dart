@@ -19,7 +19,7 @@ class ProductsController extends GetxController {
       isLoading.value = true;
       final response = await http.get(Uri.parse(baseUrl));
       if (response.statusCode == 200) {
-        // API returns a JSON array -> parse to List<TableModelStore>
+        
         final products = tableModelStoreFromJson(response.body);
         productList.assignAll(products);
         Get.snackbar(
